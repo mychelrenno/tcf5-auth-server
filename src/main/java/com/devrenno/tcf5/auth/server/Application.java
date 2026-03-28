@@ -2,12 +2,13 @@ package com.devrenno.tcf5.auth.server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
-public class Tcf5AuthServerApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Tcf5AuthServerApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }
