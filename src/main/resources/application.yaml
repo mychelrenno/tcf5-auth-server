@@ -5,9 +5,9 @@ spring:
   application:
     name: tcf5-auth-server
   mongodb:
-    host: localhost
-    port: 27018
-    database: tcf5-auth-server-db
+    host: db # usar identificador do servico docker-compose.yml
+    port: 27017
+    database: tcf5-auth-db
     username: admin
     password: sucesso
     authentication-database: admin

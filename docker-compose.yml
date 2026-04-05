@@ -1,0 +1,32 @@
+services:
+  db:
+    image: mongo:8.2.2-noble
+    ports:
+      - "27018:27017"
+    volumes:
+      - volume-mongo:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: sucesso
+      MONGO_INITDB_DATABASE: tcf5-auth-db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  app:
+    image: tcf5-auth-server:1.0
+    build:
+      # Pasta onde está o Dockerfile
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  volume-mongo:
