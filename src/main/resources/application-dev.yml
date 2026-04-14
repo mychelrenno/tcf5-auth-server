@@ -1,0 +1,20 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: tcf5-auth-server
+  mongodb:
+    host: localhost
+    port: 27018
+    database: tcf5-auth-db
+    username: admin
+    password: sucesso
+    authentication-database: admin
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
